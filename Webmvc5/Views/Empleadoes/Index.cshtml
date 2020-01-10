@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Webmvc5.Models.Vempleados>
+
+@{
+    ViewBag.Title = "Index";
+    //Layout = null;
+}
+
+<!--<h2>Index</h2>-->
+
+<p>
+    <div class="col-md-offset-10 col-md-11">
+        @Html.ActionLink("Nuevo", "Create", new { }, new { @class = "btn btn-success fa fa-plus", title = "Nuevo" })
+    </div>
+</p>
+<table class="table table-striped table-condensed">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sueldo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.departamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaIngreso)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sueldo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.departamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaIngreso)
+        </td>
+        <td>
+ 
+            @Html.ActionLink(" ", "Edit", new { id = item.id }, new { @class = "btn btn-primary btn-sm fa fa-pencil fa-lg", title = "Modificar" })
+            @Html.ActionLink(" ", "Delete", new { id = item.id }, new { @class = "btn btn-danger btn-sm fa fa-trash fa-lg", title = "Borrar" })
+           
+
+
+             
+			
+        </td>
+    </tr>
+}
+
+</table>
